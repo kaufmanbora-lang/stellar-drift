@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: stellar-drift
+    runtime: node
+    buildCommand: npm install
+    startCommand: npm start
+    autoDeploy: true
+    envVars:
+      - key: NODE_VERSION
+        value: 22
+      - key: SCORE_SECRET
+        generateValue: true
+      - key: DATA_DIR
+        value: /var/data
+    disk:
+      name: stellar-drift-data
+      mountPath: /var/data
+      sizeGB: 1
